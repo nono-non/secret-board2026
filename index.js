@@ -2,6 +2,11 @@
 const http = require('http');
 const auth = require('http-auth');
 const router = require('./lib/router')//.jsは省略可
+const fs = require('node:fs');
+
+fs.writeFileSync('./users.htpasswd',
+  process.env.USER_HTPASSWD
+);
 
 const basic = auth.basic({
   realm: 'Enter username and password.',
