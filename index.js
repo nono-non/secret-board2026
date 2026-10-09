@@ -5,7 +5,7 @@ const router = require('./lib/router')//.jsは省略可
 const fs = require('node:fs');
 
 fs.writeFileSync('./users.htpasswd',
-  process.env.USER_HTPASSWD
+  process.env.USER_HTPASSWD.replace(/\\n/g, '\n')
 );
 
 const basic = auth.basic({
